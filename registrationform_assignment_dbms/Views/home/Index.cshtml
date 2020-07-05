@@ -1,0 +1,64 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h5>FILL FORM</h5>
+<br />
+
+@{
+    Html.BeginForm("index", "home");
+}
+@ViewData["msg"]<br />
+<div class="container-sm">
+    
+    <b>@Html.Label("Full NAME")</b>  @Html.TextBox("name",null,new { @class = "form-control" })    
+    @Html.ValidationMessage("name", new { @class="text-danger"})
+    <br />
+
+    <b>@Html.Label("EMAIL ")</b> @Html.TextBox("email", null, new { @class = "form-control" })
+    @Html.ValidationMessage("email", new { @class = "text-danger" })
+    <br />
+
+    <b>@Html.Label("MOBILE NUMBER")</b> @Html.TextBox("number",null, new { @class = "form-control" })
+    @Html.ValidationMessage("number", new { @class = "text-danger" })
+    <br />
+
+    <b>@Html.Label("CNIC NUMBER")</b> @Html.TextBox("cnic",null, new { @class = "form-control" })
+    @Html.ValidationMessage("cnic", new { @class = "text-danger" })
+    <br />
+
+    <b>@Html.Label("PREVIOUS EDUCATION")</b> &nbsp;  @Html.DropDownList("education", 
+    new SelectList(new[] { "Matric", "Intermadiate", "Graduate", "Post-graduate" }), "select", new { @class = "form-control" })
+
+    @Html.ValidationMessage("education", new { @class = "text-danger" })
+    <br />
+
+
+    <b>@Html.Label("MALE")</b>  @Html.RadioButton("gender", "MALE")
+    <b>@Html.Label("FEMALE")</b>  @Html.RadioButton("gender", "FEMALE")
+    <b>@Html.Label("OTHER")</b>  @Html.RadioButton("gender", "OTHER")
+    @Html.ValidationMessage("gender", new { @class = "text-danger" })
+    <br /><br />
+
+
+    <b>@Html.Label("PROVINCE")</b>  @Html.DropDownList("province", 
+    new SelectList(new[] { "Sindh", "Punjab", "Kpk", "Balochistan" }), "select", new { @class = "form-control" })
+
+    @Html.ValidationMessage("province", new { @class = "text-danger" })
+    <br />
+
+    <b>@Html.Label("CITY")</b>  @Html.DropDownList("city",
+    new SelectList(new[] { "karachi", "lahore", "islamabad", "rawalpindi" }), "select", new { @class = "form-control" })
+
+    @Html.ValidationMessage("city", new { @class = "text-danger" })
+    <br /><br />
+
+
+    @Html.CheckBox("accept",false,"accept") &nbsp; @Html.Label("I ACCEPTED ALL THE TERMS")
+    @Html.ValidationMessage("accept", new { @class = "text-danger" })
+    <br /><br />
+
+    <input type="submit" value="SUBMIT" class="btn btn-primary" />
+    <input type="reset" value="reset" class="btn btn-dark" />
+</div>
